@@ -1,30 +1,21 @@
-# --------------------------------------------
-# MindWave BioSync™ – Main System Loop
-# Activation → Gemini → State Engine
-# --------------------------------------------
+"""Example entry point demonstrating the Gemini layer."""
 
-from bsam_model import BSAMModel
-from state_engine import StateEngine
 from activation_engine import ActivationEngine
+from bsam_model import BSAMModel
 from gemini_engine import GeminiEngine
-from mindwave_symbolic import ACTIVATION_LAYERS  # your symbolic activation layers
+from mindwave_symbolic import ACTIVATION_LAYERS
+
 
 def run():
-    # -------------------------------
-    # 1️⃣ Initialize Core Systems
-    # -------------------------------
     bsam = BSAMModel(B=1.0, S=1.0, A=1.0, M=1.2)
-    engine = StateEngine()
-    activator = ActivationEngine()
-    gemini = GeminiEngine()
+    bsam = ActivationEngine().apply_all(bsam, ACTIVATION_LAYERS)
+    bsam = GeminiEngine().apply_gemini(bsam)
 
-    # -------------------------------
-    # 2️⃣ Apply Activation Layers
-    # -------------------------------
-    bsam = activator.apply_all(bsam, ACTIVATION_LAYERS)
-    print("After Activation Layers:", bsam.get_state())
+    print("After Activation:", bsam.get_state())
+    print("Gemini Vector:", bsam.gemini_vector)
+    print("Gemini Coherence:", bsam.gemini_coherence)
+    return bsam
 
-    # -------------------------------
-    # 3️⃣ Apply Gemini / Twin-State Logic
-    # -------------------------------
-    bsam = gemini.apply
+
+if __name__ == "__main__":
+    run()
