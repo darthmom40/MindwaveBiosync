@@ -1,21 +1,25 @@
 # Security Policy
 
-## Supported Versions
+## Supported versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+MindWave BioSync is currently an experimental prototype.
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+| Version | Supported |
+| --- | --- |
+| 0.2.x | Yes |
+| Older versions | No |
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Please do not publicly disclose a security vulnerability before it has been reviewed.
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+Open a private security advisory through the repository's **Security** tab when GitHub private vulnerability reporting is available. If that option is unavailable, open a GitHub issue without including secrets, credentials, personal data, or exploit details.
+
+Include:
+- a clear description of the issue
+- affected file or component
+- steps needed to reproduce it
+- potential impact
+- any suggested mitigation
+
+Do not include passwords, API keys, tokens, health information, or other sensitive personal data in reports.
